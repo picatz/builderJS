@@ -33,6 +33,7 @@ Created HTML from previous function ( not yet in DOM ).
 ```html
 <div></div>
 ```
+##### Further Details
 If you want to append the HTML to the document body:
 ```javascript
 b.append(divElement)
@@ -42,6 +43,24 @@ You could also skip making it a seperate variable and just add the output of the
 b.append(b.element("div"))
 ```
 Now the output of the `element()` function has been appended to the document body.
+
+### Building Components
+We could build a simple component function that utilizes the various builderJS functions.
+
+##### Intput
+Create a slightly more complex [`div`](https://www.w3schools.com/tags/tag_div.asp) element.
+```javascript
+// create a basic static component set with a regular component
+var staticComponentSet = b.component({ 
+  heading: b.heading({ text: "Hello World!" }),
+  header: b.header,
+  div: b.div,
+  get all () {
+    b.append(this.heading, { to: this.header })
+  }
+})
+```
+
 
 ## Full HTML Example
 
