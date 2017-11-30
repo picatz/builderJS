@@ -75,26 +75,25 @@ var dynamicHeader = b.component({
     <script>
       // Builder module
       var b = new Builder();
-      
-      // example builder function to build a simple html component 
-      var buildComponent = function() {
-        // create div with id "view" using the "text-center" boostrap class
-        var div = b.div({ id: "view", class: "text-center" })
-        // create a header tag that contains an h1 heading 
-        var header = b.header({ 
-          html: b.heading({ text: "Example Application"})
-         })
-        // add some love in a paragraph that's bold
-        var paragraph = b.paragraph(b.bold(b.sanitize("Built with ♥")))
-        // put them together
-        b.append(header, { to: div })
-        b.append(paragraph, { to: header })
-        // return the freshly built div
-        return div
-      }
-      
-      // create div component and add it to the document body
-      b.append(buildComponent())
+    
+      // static header component 
+      var staticHeader = b.component({ 
+        build: function() {
+          return b.div({ 
+            id: "view", 
+            class: "text-center", 
+            html: b.header({ 
+              html: [ 
+                b.heading({ text: "Example Application" }),
+                b.paragraph(b.bold(b.sanitize("Built with ♥")))
+              ]
+            })
+          })
+        }
+      })
+
+      // build the component
+      b.append(staticHeader.build())
     </script>
   </body>
 </html>
