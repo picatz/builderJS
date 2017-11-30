@@ -25,17 +25,22 @@ git clone https://github.com/picatz/builderJS
       
       // example builder function to build a simple html component 
       var buildComponent = function() {
-        var div       = b.div({ id: "view", class: "text-center" })
-          var header    = b.header({ 
-      html: b.heading({ text: "Example Application"})
-      })
+        // create div with id "view" using the "text-center" boostrap class
+        var div = b.div({ id: "view", class: "text-center" })
+        // create a header tag that contains an h1 heading 
+        var header = b.header({ 
+          html: b.heading({ text: "Example Application"})
+         })
+        // add some love in a paragraph that's bold
         var paragraph = b.paragraph(b.bold(b.sanitize("Built with ♥")))
-      b.append(header, { to: div })
-      b.append(paragraph, { to: header })
+        // put them together
+        b.append(header, { to: div })
+        b.append(paragraph, { to: header })
+        // return the freshly built div
         return div
-        }
+      }
       
-      // add component to document body
+      // create div component and add it to the document body
       b.append(buildComponent())
     </script>
   </body>
