@@ -24,15 +24,24 @@ var b = new Builder();
 The API is both fun and functional in nature. All the functions in builderJS come from the `Builder` module; and most functions within the module rely on the `element()` function.
 
 ##### Intput
+Create a simple [`div`](https://www.w3schools.com/tags/tag_div.asp) element.
 ```javascript
-# create a simple div element
 var divElement = b.element("div")
 ```
 ##### Output
+Created HTML from previous function ( not yet in DOM ).
 ```html
-# created html from previous function
 <div></div>
 ```
+If you want to append the HTML to the document body:
+```javascript
+b.append(divElement)
+```
+You could also skip making it a seperate variable and just add the output of the function right away.
+```javascript
+b.append(b.element("div"))
+```
+Now the output of the `element()` function has been appended to the document body.
 
 ## Full HTML Example
 
