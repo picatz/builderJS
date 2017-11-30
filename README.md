@@ -14,6 +14,28 @@ git clone https://github.com/picatz/builderJS
 
 ## Usage
 
+Create a builder object called `b` using the `Builder` module.
+
+```javascript
+var b = new Builder();
+```
+
+### Fun with `function()`'s
+The API is both fun and functional in nature. All the functions in builderJS come from the `Builder` module; and most functions within the module rely on the `element()` function.
+
+##### Intput
+```javascript
+# create a simple div element
+var divElement = b.element("div")
+```
+##### Output
+```html
+# created html from previous function
+<div></div>
+```
+
+## Full HTML Example
+
 ```html
 <!DOCTYPE html>
 <html>
