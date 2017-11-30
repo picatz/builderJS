@@ -51,12 +51,12 @@ We could build a simple component function that utilizes the various builderJS f
 Create a slightly more complex [`div`](https://www.w3schools.com/tags/tag_div.asp) element.
 ```javascript
 // create a basic static component set with a regular component
-var staticComponentSet = b.component({ 
-  heading: b.heading({ text: "Hello World!" }),
-  header: b.header,
-  div: b.div,
-  get all () {
-    b.append(this.heading, { to: this.header })
+var dynamicHeader = b.component({ 
+  build: function(options = {}) {
+    var heading = b.heading({ text: (options.text || "Example")})
+    var header  = b.header({ html: heading })
+    var div     = b.div({ html: header })
+    return div
   }
 })
 ```
