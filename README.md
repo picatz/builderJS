@@ -78,22 +78,20 @@ var dynamicHeader = b.component({
     
       // static header component 
       var staticHeader = b.component({ 
-        build: function() {
-          return b.div({ 
-            id: "view", 
-            class: "text-center", 
-            html: b.header({ 
-              html: [ 
-                b.heading({ text: "Example Application" }),
-                b.paragraph(b.bold(b.sanitize("Built with ♥")))
-              ]
-            })
+        build: return b.div({ 
+          id: "view", 
+          class: "text-center", 
+          html: b.header({ 
+            html: [ 
+              b.heading({ text: "Example Application" }),
+              b.paragraph(b.bold(b.sanitize("Built with ♥")))
+            ]
           })
-        }
+        })
       })
 
       // build the component
-      b.append(staticHeader.build())
+      b.append(staticHeader.build)
     </script>
   </body>
 </html>
