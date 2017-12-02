@@ -1,3 +1,11 @@
+/*
+	  ____  _   _  _  _   ____  ____  ____
+	 | _  /| | | || || | |    \|  __||  _ /   
+	 | __ \| |_| || || |_|_ -  \  __||  _ \
+	 |_____\ ____/|_||_____|___/____||_| \_\
+
+     Built with ♥ by Kent 'picat' Gruber
+*/
 function Builder() {
 	// Append element to a given element or to document body.
 	this.append = function(obj, options = {}) {
@@ -460,6 +468,3 @@ function Builder() {
 	}
 
 }
-
-module.exports = Builder;
-
