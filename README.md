@@ -50,7 +50,7 @@ We could build a simple component function that utilizes the various builderJS f
 ##### Intput
 Create a slightly more complex [`div`](https://www.w3schools.com/tags/tag_div.asp) element.
 ```javascript
-// create a basic static component set with a regular component
+// create a basic dynamic component
 var dynamicHeader = b.component({ 
   build: function(options = {}) {
     var heading = b.heading({ text: (options.text || "Example")})
@@ -59,8 +59,10 @@ var dynamicHeader = b.component({
     return div
   }
 })
-```
 
+// build the header and append it to the document body
+b.append(dynamicHeader.build())
+```
 
 ## Full HTML Example
 
