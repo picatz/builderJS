@@ -71,27 +71,25 @@ var dynamicHeader = b.component({
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
   </head>
   <body>
-    <script src="/path/to/builder.js"></script>
+    <script src="builder.js"></script>
     <script>
       // Builder module
       var b = new Builder();
     
-      // static header component 
-      var staticHeader = b.component({ 
-        build: return b.div({ 
-          id: "view", 
-          class: "text-center", 
-          html: b.header({ 
-            html: [ 
-              b.heading({ text: "Example Application" }),
-              b.paragraph(b.bold(b.sanitize("Built with ♥")))
-            ]
-          })
+      // lets built a static header in a div
+      var staticHeader = b.div({ 
+        id: "view", 
+        class: "text-center", 
+        html: b.header({ 
+          html: [ 
+            b.heading({ text: "Example Application" }),
+            b.paragraph(b.bold(b.sanitize("Built with ♥")))
+          ]
         })
       })
 
-      // build the component
-      b.append(staticHeader.build)
+      // add the div to the document body
+      b.append(staticHeader)
     </script>
   </body>
 </html>
