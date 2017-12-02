@@ -76,7 +76,7 @@ var dynamicHeader = b.component({
       // Builder module
       var b = new Builder();
     
-      // lets built a static header in a div
+      // build a static header in a div
       var staticHeader = b.div({ 
         id: "view", 
         class: "text-center", 
