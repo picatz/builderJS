@@ -1,8 +1,8 @@
 <div align="center">
 
-# builderJS
+# BuilderJS
 
-> 👷  Simple, composable HTML builder.
+> 👷  Simple, composable user interface builder.
 
 </div>
 
