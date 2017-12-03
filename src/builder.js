@@ -21,7 +21,7 @@ function Builder() {
 				return document.body
 		}
 	}
-
+	
 	// Turns a raw string into a text node.
 	this.sanitize = function(string) {
 		if (typeof string === "string") {
@@ -77,18 +77,30 @@ function Builder() {
 			}
 			delete options.class;
 		}
+		if (options.events) {
+      if (options.events instanceof Object) {
+        for (e in options.events) {
+          var isFunc = options.events[e] instanceof Function
+          if (!isFunc) {
+            options.events[e] = function() { options.events[e] }
+          }
+          el.addEventListener(e, options.events[e]) 
+        }
+      }
+		  delete options.events;
+		}
 		if (options.text) { 
 			el.innerText = options.text;
 			delete options.text;
 		}
 		if (options.html) {
-			if (typeof options.html[Symbol.iterator] === 'function') {
+      if (options.html instanceof Array) {
 				for (option in options.html) {
-					el.appendChild(options.html[option]);
+          el.appendChild(options.html[option]);
 				}
-			} else {
+      } else {
 				el.appendChild(options.html);
-			}
+      }
 			delete options.html;
 		}
 		// every other option argument argument handling
