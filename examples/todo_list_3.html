@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+
+      var todo = b.component({
+        render: function() {
+          var input = b.input({
+            value: "example"
+          })
+
+          var removeButton = function() {
+            return b.button({ 
+              text: "x", 
+              events: { 
+                click: function() { 
+                  document.body.removeChild(this.parentNode); 
+                } 
+              } 
+            })
+          }
+
+          var addButton = b.button({
+            text: "Add",
+            events: {
+              click: function() { 
+                var item = b.listItem({ 
+                  class: "text-center", 
+                  text: input.value,
+                  html: removeButton()
+                })
+                b.append(item)
+              }
+            }
+          })
+
+          var list = b.unOrderedList()
+          
+          var listContainer = b.div({
+            id: "list",
+            class: "text-center",
+            html: [ list, input, addButton ] 
+          })
+
+          b.append(listContainer)
+        }
+      })
+
+      todo.render()
+
+    </script>
+  </body>
+</html>
