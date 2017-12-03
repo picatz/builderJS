@@ -47,7 +47,7 @@ Now the output of the `element()` function has been appended to the document bod
 ### Building Components
 We could build a simple component function that utilizes the various builderJS functions.
 
-##### Intput
+##### Input
 Create a slightly more complex [`div`](https://www.w3schools.com/tags/tag_div.asp) element.
 ```javascript
 // create a basic dynamic component
