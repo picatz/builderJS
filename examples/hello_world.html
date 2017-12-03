@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+  
+      // helloMessage function
+      var helloMessage = function(options) {
+        return b.div({ text: "Hello " + options.name })
+      }
+      
+      // add the div to the document body
+      b.append(helloMessage({ name: "World" })) 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+
+      var exampleList = b.unOrderedList({
+        id: "example",
+        html: [
+          b.listItem({ text: "Coffee" }),
+          b.listItem({ text: "Tea" }),
+          b.listItem({ text: "Milk" })
+        ]
+      })
+
+      // add the list to the document body
+      b.append(exampleList)
+    </script>
+  </body>
+</html>
