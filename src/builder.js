@@ -4,7 +4,8 @@
 	 | __ \| |_| || || |_|_ -  \  __||  _ \
 	 |_____\ ____/|_||_____|___/____||_| \_\
 
-     Built with ♥ by Kent 'picat' Gruber
+	 Built with ♥ by Kent 'picat' Gruber
+
 */
 function Builder() {
 	// Append element to a given element or to document body.
@@ -70,7 +71,7 @@ function Builder() {
 			} else if (typeof options.class[Symbol.iterator] === 'function') {
 				var classes = []
 					for (c in options.class) {
-						classes.push(c)
+						classes.push(options.class[c])
 					}
 				el.className = classes.join(" ")
 			}
@@ -92,7 +93,8 @@ function Builder() {
 		}
 		// every other option argument argument handling
 		Object.keys(options).forEach(function (option) {
-			el[option] = options[option];
+			el.setAttribute(option, options[option])
+				//el[option] = options[option];
 		})
 		// return element
 		return el;
@@ -252,7 +254,7 @@ function Builder() {
 	}
 
 	this.listItem = function(options = {}) {
-		return this.element("il", options);
+		return this.element("li", options);
 	}
 
 	this.orderedList= function(options = {}) {
