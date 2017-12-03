@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+      
+      var input = b.input({
+        value: "example" 
+      })
+      
+      var button = b.button({
+        text: "Add",
+        events: {
+          click: function() { 
+            var item = input.value
+            b.append(b.listItem({ text: item }), { to: todoList })
+          }
+        }
+      })
+      
+      var todoList = b.unOrderedList({  
+        value: "example",
+        html: [ input, button ]
+      })
+
+      b.append(todoList)
+    </script>
+  </body>
+</html>
