@@ -23,7 +23,7 @@ var b = new Builder();
 ### Fun with `function()`'s
 The API is both fun and functional in nature. All the functions in builderJS come from the `Builder` module; and most functions within the module rely on the `element()` function.
 
-##### Intput
+##### Input
 Create a simple [`div`](https://www.w3schools.com/tags/tag_div.asp) element.
 ```javascript
 var divElement = b.element("div")
