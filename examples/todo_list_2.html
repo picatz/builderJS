@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+
+      var todo = b.component({
+        render: function(options) {
+          var input = b.input({
+            value: "example"
+          })
+          var button = b.button({
+            text: "Add",
+            events: {
+              click: function() { 
+                var item = b.listItem({ class: "text-center", text: input.value })
+                b.append(item)
+              }
+            }
+          })
+          var list = b.unOrderedList()
+          var listContainer = b.div({
+            id: "list",
+            class: "text-center",
+            html: [ list, input, button ] 
+          })
+          b.append(listContainer)
+        }
+      })
+
+      todo.render()
+
+    </script>
+  </body>
+</html>
