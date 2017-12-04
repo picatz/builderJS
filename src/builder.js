@@ -8,7 +8,6 @@
 
 */
 function Builder() {
-  // Append element to a given element or to document body.
   this.append = function(obj, options = {}) {
     if (typeof obj === "function") {
       obj = obj.call(options)
@@ -22,7 +21,6 @@ function Builder() {
     }
   }
 
-  // Turns a raw string into a text node.
   this.sanitize = function(string) {
     if (typeof string === "string") {
       string = document.createTextNode(string);
@@ -30,7 +28,6 @@ function Builder() {
     return string;
   }
 
-  // Creates bold text element. 
   this.bold = function(string, options = {}) {
     var el = this.element("b", options)
       string = this.sanitize(string)
@@ -38,7 +35,6 @@ function Builder() {
       return el
   }
 
-  // Creates paragraph text element. 
   this.paragraph = function(string, options = {}) {
     var el = this.element("p", options)
       string = this.sanitize(string)
@@ -46,13 +42,11 @@ function Builder() {
       return el
   }
 
-  // Creates div element. 
   this.div = function(options = {}) {
     var el = this.element("div", options)
-      return el
+    return el
   }
 
-  // Creates HTML comment.
   this.comment = function(string) {
     var comment = "<!-- ";
     comment += string;
@@ -60,11 +54,8 @@ function Builder() {
     return comment;
   }
 
-  // The heart of this module. Creates basically all HTML elements.
   this.element = function(string, options = {}) {
-    // create basic element of a given type
     var el = document.createElement(string);
-    // special options argument handling
     if (options.class) { 
       if (typeof options.class === 'string') {
         el.className = options.class;
@@ -103,18 +94,13 @@ function Builder() {
       }
       delete options.html;
     }
-    // every other option argument argument handling
     Object.keys(options).forEach(function (option) {
       el.setAttribute(option, options[option])
-        //el[option] = options[option];
     })
-    // return element
     return el;
   }
 
-  // Creates an HTML heading element of your choice.
   this.heading = function(options = {}) {
-    // options argument handling
     if (options.type) {
       var type = options.type 
         delete options.type
