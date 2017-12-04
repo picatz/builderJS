@@ -81,8 +81,13 @@ function Builder() {
       }
       delete options.events;
     }
-    if (options.text) { 
-      el.innerText = options.text;
+    if (options.text) {
+      if (typeof options.text === 'string') { 
+        el.innerText = options.text;
+      } else {
+        console.log("hit")
+        el.appendChild(options.text);
+      }
       delete options.text;
     }
     if (options.html) {
