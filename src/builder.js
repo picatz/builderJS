@@ -85,7 +85,6 @@ function Builder() {
       if (typeof options.text === 'string') { 
         el.innerText = options.text;
       } else {
-        console.log("hit")
         el.appendChild(options.text);
       }
       delete options.text;
