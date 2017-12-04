@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+
+      var todo = b.component({
+        render: function() {
+
+          var emailFormInput = b.input({
+            class: "form-control",
+            type: "email", 
+            placeholder: "Enter email"
+          })
+
+          var emailFormGroup = b.div({
+            class: ["form-group", "container"],
+            html: [
+              b.label({ 
+                for: "exampleInputEmail1", 
+                text: "Email address"
+              }),
+              b.div({ 
+                html: emailFormInput 
+              }),
+              b.small({ 
+                class: [ "form-text", "text-muted" ],
+                text: "We'll never share your email with anyone else."
+              })
+            ]
+          })
+          
+          var submitButton = b.button({
+            class: ["btn", "btn-primary"],
+            text: "Submit",
+            events: {
+              click: function() { 
+                alert(emailFromInput.value)
+              }
+            }
+          })
+
+          var form = b.div({
+            class: ["text-center"],
+            html: [ emailFormGroup, submitButton ]
+          })
+
+          b.append(form)
+        }
+      })
+
+      todo.render()
+
+    </script>
+  </body>
+</html>
