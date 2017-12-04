@@ -28,18 +28,14 @@ function Builder() {
     return string;
   }
 
-  this.bold = function(string, options = {}) {
+  this.bold = function(options = {}) {
     var el = this.element("b", options)
-      string = this.sanitize(string)
-      this.append(string, { to: el })
-      return el
+    return el
   }
 
-  this.paragraph = function(string, options = {}) {
+  this.paragraph = function(options = {}) {
     var el = this.element("p", options)
-      string = this.sanitize(string)
-      this.append(string, { to: el })
-      return el
+    return el
   }
 
   this.div = function(options = {}) {
