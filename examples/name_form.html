@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+
+      var nameForm = b.component({
+        render: function() {
+          
+          var inputField = b.input({
+            value: "Type something...",
+            type: "text"
+          })
+          
+          var inputButton = b.input({
+            value: "Enter",
+            type: "submit"
+          })
+          
+          var form = b.form({
+            html: [ inputField, inputButton ],
+            events: {
+              submit: function() {
+                alert(inputField.value)
+              }
+            }
+          })
+
+          var formDiv = b.div({
+            id: "example",
+            class: "text-center",
+            html: form
+          })
+
+          b.append(formDiv)
+        }
+      })
+
+      nameForm.render()
+
+    </script>
+  </body>
+</html>

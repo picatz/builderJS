@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+  
+      // create basic h1 heading element
+      var helloWorld = b.heading({ text: "Hello World!" })
+      
+      // add the h1 tag to the document body
+      b.append(helloWorld)
+    </script>
+  </body>
+</html>
