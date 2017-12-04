@@ -52,16 +52,17 @@ Create a slightly more complex [`div`](https://www.w3schools.com/tags/tag_div.as
 ```javascript
 // create a basic dynamic component
 var dynamicHeader = b.component({ 
-  build: function(options = {}) {
-    var heading = b.heading({ text: (options.text || "Example")})
-    var header  = b.header({ html: heading })
-    var div     = b.div({ html: header })
-    return div
+  render: function(options = {}) {
+    return b.div({
+      html: b.heading({ 
+        text: (options.text || "Example")
+      })
+    })
   }
 })
 
 // build the header and append it to the document body
-b.append(dynamicHeader.build())
+b.append(dynamicHeader.render({ text: "Custom Text!" }))
 ```
 
 ## Full HTML Example
