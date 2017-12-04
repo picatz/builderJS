@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      // Builder module
+      var b = new Builder();
+
+      var listSelection = b.component({
+        render: function(options = {}) {
+          var defaultSelection = options.default || "coconut"
+          
+          var allSelections = [ 
+            b.option({ value: "grapefruit", text: "Grapefruit" }),
+            b.option({ value: "lime", text: "Lime" }),
+            b.option({ value: "coconut", text: "Coconut" }),
+            b.option({ value: "mango", text: "Mango" })
+          ]
+
+          var selections = b.select({
+            value: defaultSelection,
+            html: allSelections
+          })
+          
+          var labeledMenu = b.label({
+            text: "Pick your favorite La Croix flavor:",
+            html: selections
+          })
+          
+          var inputButton = b.button({
+            text: "Enter",
+            type: "submit"
+          })
+          
+          var form = b.form({
+            html: [ labeledMenu, b.div({ html: inputButton })],
+            events: {
+              submit: function() {
+                alert(selections.value)
+              }
+            }
+          })
+
+          var formDiv = b.div({
+            id: "example",
+            class: "text-center",
+            html: form
+          })
+
+          b.append(formDiv)
+        }
+      })
+
+      listSelection.render()
+
+    </script>
+  </body>
+</html>
