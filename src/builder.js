@@ -66,6 +66,11 @@ function Builder() {
     }
     if (options.events) {
       if (options.events instanceof Object) {
+        if (options.events.tick) {
+          // TODO : Allow for granular event ticker.
+          setInterval(options.events.tick, options.events.interval || 1000)
+          delete options.events.tick
+        }
         for (var e in options.events) {
           var isFunc = options.events[e] instanceof Function
             if (!isFunc) {
