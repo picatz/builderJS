@@ -48,7 +48,7 @@ Now the output of the `element()` function has been appended to the document bod
 We could build a simple component function that utilizes the various builderJS functions.
 
 ##### Input
-Create a slightly more complex [`div`](https://www.w3schools.com/tags/tag_div.asp) element.
+Create a slightly more complex [`div`](https://www.w3schools.com/tags/tag_div.asp) element using a [component](https://github.com/picatz/builderJS/wiki/Component-Style) style.
 ```javascript
 // create a basic dynamic component
 var dynamicHeader = b.component({ 
