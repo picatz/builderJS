@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+
+      var b = new Builder();
+
+      var clockComponent = b.component({ 
+        render: function() {
+          var getDate = function() { return new Date().toLocaleString().split(", ")[1] }
+        
+          var clockIcon = b.div({ 
+            html: b.span({ class: "fa fa-clock-o"})
+          }) 
+
+          var jumbotronDate = b.bold({
+            text: getDate(),
+            events: {
+              tick: function() { jumbotronDate.innerText = getDate() }
+            }
+          })
+
+          var jumbotronHeading = b.heading({
+            class: "display-2",
+            style: "text-center",
+            html: [clockIcon, jumbotronDate]
+          })
+          
+          var someLove = b.div({ text: "Built with ♥ by Kent 'picat' Gruber" })
+
+          var jumbotron = b.div({
+            class: "jumbotron text-center text-white bg-primary",
+            style: "height: 100vh;",
+            html: [jumbotronHeading, someLove]
+          })
+
+          return jumbotron
+        }
+      })
+
+      b.append(clockComponent.render())
+    
+    </script>
+  </body>
+</html>
