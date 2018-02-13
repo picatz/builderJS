@@ -13,7 +13,7 @@ git clone https://github.com/picatz/builderJS
 ```
 ## Quick Example
 
-How about a block?
+How about a clock?
 
 ```javascript
 var b = new Builder();
