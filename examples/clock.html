@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../src/builder.js"></script>
+    <script>
+      var b = new Builder();
+
+      function getTime() {
+          return new Date().toLocaleString().split(", ")[1]
+      }
+      
+			var currentTime = b.heading({
+        text: getTime(),
+        events: {
+          tick: function() { currentTime.innerText = getTime() }
+        }
+      })
+
+      b.append(currentTime)
+    </script>
+  </body>
+</html>

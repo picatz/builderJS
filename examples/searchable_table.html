@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body> 
+    <script src="../src/builder.js"></script>
+    <script>
+      var b = new Builder();
+      
+      var tableComponent = b.component({
+        render: function() {
+          var tableRows = [
+            b.tableRow({ html: [ b.tableCell({ text: "john"  }) ] }),
+            b.tableRow({ html: [ b.tableCell({ text: "ringo" }) ] }),
+            b.tableRow({ html: [ b.tableCell({ text: "paul"  }) ] })
+          ]
+
+          var tableBody = b.tableBody({
+            html: tableRows
+          })
+          
+          var searchBar = b.input({
+            class: "form-control",
+            type: "search",
+            placeholder: "Search",
+            events: {
+              search: function() {
+                if ( searchBar.value == "" ) {
+                  for (i = 0; i <= tableRows.length; i++) {
+                    tableRows[i].style.display = "block" 
+                  }
+                } else {
+                  for (i = 0; i <= tableRows.length; i++) {
+                    if (tableRows[i].innerText.includes(searchBar.value) == true) {
+                      tableRows[i].style.display = "block" 
+                    } else {
+                      tableRows[i].style.display = "none"
+                    }
+                  }
+                }
+              }
+            }
+          })
+
+          var table = b.table({
+            class: "table",
+            html: [ 
+              tableBody
+            ]
+          })
+
+          return b.div({
+            html: [searchBar, table]
+          })
+        }
+      })
+      
+      b.append(tableComponent.render())
+    </script>
+  </body>
+</html>

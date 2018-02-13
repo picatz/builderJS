@@ -11,6 +11,26 @@
 ```shell
 git clone https://github.com/picatz/builderJS
 ```
+## Quick Example
+
+How about a block?
+
+```javascript
+var b = new Builder();
+
+function getTime() {
+  return new Date().toLocaleString().split(", ")[1]
+}
+
+var currentTime = b.heading({
+  text: getTime(),
+  events: {
+    tick: function() { currentTime.innerText = getTime() }
+  }
+})
+
+b.append(currentTime)
+```
 
 ## Usage
 
